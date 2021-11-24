@@ -1,0 +1,38 @@
+﻿@page
+@model NextSerie.Model.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+<div class="container panel-login" style="border-radius: 15px; margin-top:10%">
+    <div class="row h-80">
+        <div class="col-sm-10 offset-sm-1" >
+            <center style="padding-top:50px">
+                <img class="d-block" style="width:30%" src="~/img/logo.png">
+                <h5>NextSerie</h5>
+            </center>
+            <form asp-controller="LoginController" asp-action="ValidarLogin" method="post" style="padding-bottom:15px">
+                <div class="form-group" style="text-align: left;">
+                    <label for="usuario"></label>
+                    <input type="email" data-val="true" class="form-control" placeholder="Digite aqui o e-mail" id="usuario" name="usuario" asp-for="Email" />
+                </div>
+                <div class="form-group" style="text-align: left;">
+                    <label for="senha"></label>
+                    <input type="password" class="form-control" placeholder="Digite aqui a senha" id="senha" name="senha" asp-for="Senha"/>
+                    <span class="text-danger"></span>
+                </div>
+                <center>
+
+                    <div class="form-group">
+                        <button class="btn btn-round btn-success btn-block" type="submit"><span class="fa fa-sign-in"></span> Entrar</button>
+                    </div>
+                    <div class="form-group">
+                        <a asp-area="" asp-controller="Login" asp-action="CadastrarUsuario"><div class="text-primary"> Não sou cadastrado</div></a>
+                        <a asp-area="" asp-controller="Login" asp-action="RedefinirSenha"><div class="text-primary"> Esqueci minha senha</div></a>
+                    </div>
+                </center>
+            </form>
+        </div>
+    </div>
+</div>
