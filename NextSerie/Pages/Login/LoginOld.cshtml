@@ -1,25 +1,35 @@
-﻿@page
-@model NextSerie.Model.LoginModel
+﻿@model NextSerie.Models.LoginViewModel
 @{
     ViewData["Title"] = "Login";
 }
 
 
+@if (Model != null && !string.IsNullOrWhiteSpace(Model.ErrorMessage))
+{
+    <partial name="_ErrorMessage" for="@Model.ErrorMessage" />
+}
+
+@if (Model != null && !string.IsNullOrWhiteSpace(Model.SuccessMessage))
+{
+    <partial name="_SuccessMessage" for="@Model.SuccessMessage" />
+}
+
+
 <div class="container panel-login" style="border-radius: 15px; margin-top:10%">
     <div class="row h-80">
-        <div class="col-sm-10 offset-sm-1" >
+        <div class="col-sm-10 offset-sm-1">
             <center style="padding-top:50px">
                 <img class="d-block" style="width:30%" src="~/img/logo.png">
                 <h5>NextSerie</h5>
             </center>
-            <form asp-controller="LoginController" asp-action="ValidarLogin" method="post" style="padding-bottom:15px">
+            <form asp-controller="Login" asp-action="ValidarLogin" method="post" style="padding-bottom:15px">
                 <div class="form-group" style="text-align: left;">
                     <label for="usuario"></label>
-                    <input type="email" data-val="true" class="form-control" placeholder="Digite aqui o e-mail" id="usuario" name="usuario" asp-for="Email" />
+                    <input type="email" data-val="true" class="form-control" placeholder="Digite aqui o e-mail" id="usuario" asp-for="Email" />
                 </div>
                 <div class="form-group" style="text-align: left;">
                     <label for="senha"></label>
-                    <input type="password" class="form-control" placeholder="Digite aqui a senha" id="senha" name="senha" asp-for="Senha"/>
+                    <input type="password" class="form-control" placeholder="Digite aqui a senha" id="senha" asp-for="Senha" />
                     <span class="text-danger"></span>
                 </div>
                 <center>

@@ -74,3 +74,10 @@ body {
     background-color: #DCDBDB;
     width:50%;
 }
+
+.fundo-site {
+    background-image: url("../img/fundo_login.jpeg") !important;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto;
+}

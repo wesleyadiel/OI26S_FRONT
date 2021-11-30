@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NextSerie.Model
+namespace NextSerie.Models
 {
-    public class LoginModel
+    public class LoginViewModel
     {
         public string Email { get; set; }
         public string Senha { get; set; }
+
+        public string ErrorMessage { get; set; }
+        public string SuccessMessage { get; set; }
     }
 }
